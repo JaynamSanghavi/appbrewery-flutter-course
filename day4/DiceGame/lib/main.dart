@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:audioplayers/audio_cache.dart';
 
 void main() {
   return runApp(
@@ -28,6 +29,7 @@ class DicePage extends StatefulWidget {
 class _DicePageState extends State<DicePage> {
   
   static Random random = new Random();
+   final player = AudioCache();
   
   var ldn = random.nextInt(5) + 1;
   var rdn = random.nextInt(5) + 1;
@@ -46,6 +48,7 @@ class _DicePageState extends State<DicePage> {
             child : FlatButton(
               onPressed: (){
                 setState(() {
+                  player.play('effect.mp3');
                   randomGenerate();
                 });
               }, 
@@ -59,6 +62,7 @@ class _DicePageState extends State<DicePage> {
             child : FlatButton(
               onPressed: (){
                 setState(() {
+                  player.play('effect.mp3');
                   randomGenerate();
                 });
               }, 
